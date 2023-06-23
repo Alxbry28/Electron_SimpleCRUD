@@ -21,6 +21,8 @@
     "electron": "^25.2.0"
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
+    "electron-squirrel-startup": "^1.0.0",
+    "mysql": "^2.18.1",
+    "promise-mysql": "^5.2.0"
   }
 }
