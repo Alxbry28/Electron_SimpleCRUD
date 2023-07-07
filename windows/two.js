@@ -1,1 +1,1 @@
-alert("two js");
+console.log("two js");
