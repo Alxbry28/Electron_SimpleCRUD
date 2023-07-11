@@ -11,7 +11,9 @@ contextBridge.exposeInMainWorld("ipcRenderer", {
 
 contextBridge.exposeInMainWorld("Person", {
   getAllPerson: async () => {
-    return await Person.findAll();
+    return await Person.findAll({
+      raw: true,
+    });
   },
   findPerson: async (whereClause) => {
     return await Person.findAll({
