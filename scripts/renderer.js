@@ -30,7 +30,6 @@ var table = $("#add-row").DataTable({
         <i class="fa fa-times"></i>
       </button>
     </div>`;
-      
       },
     },
   ],
@@ -43,17 +42,12 @@ function btnDelete(id) {
 }
 
 function btnEdit(id) {
-  console.log("Edit " + id);
   let person = { id: id };
-
-  console.log("Edit ", person);
-
   personTransaction = 2;
 
   $("#transaction").val(personTransaction);
   Person.findPerson(person).then((res) => {
     $("#transactionModalTitle").text("Edit");
-
     $("#personId").val(res.id);
     $("#inpFirstName").val(res.firstname);
     $("#inpLastName").val(res.lastname);
@@ -112,19 +106,20 @@ $(document).ready(function () {
       console.log("add");
       addPerson(person)
         .then((res) => {
-          // console.log("result add: ", res);
-          // if(){}
+          if (res != null) {
+            console.log("Added: ", res);
+          }
           loadPersonToTable(table);
         })
         .catch((err) => console.error(err));
     } else if (data.transaction == 2) {
       let id = data.personId;
 
-      console.log("update");
       updatePerson(person, id)
         .then((res) => {
-          // console.log("result update: ", res);
-          // if(){}
+          if (res != null) {
+            console.log("Updated: ", res);
+          }
           loadPersonToTable(table);
         })
         .catch((err) => console.error(err));
