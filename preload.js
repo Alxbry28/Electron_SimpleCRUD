@@ -16,8 +16,9 @@ contextBridge.exposeInMainWorld("Person", {
     });
   },
   findPerson: async (whereClause) => {
-    return await Person.findAll({
+    return await Person.findOne ({
       where: whereClause,
+      raw: true,
     });
   },
   addPerson: async (person) => {
